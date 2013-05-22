@@ -2,6 +2,9 @@
 
 > Convert java [.properties](http://en.wikipedia.org/wiki/.properties) files to javascript
 
+> "JavaScript isn't a great way to store configuration data. That's because the syntax is still that of a programming language, so you need to be sure you haven't introduced syntax errors. If you end up concatenating JavaScript files together, a syntax error in a single line breaks the overall application"
+*( Nicholas C. Zakas, [Maintainable JavaScript, Writing Readable Code, O'Reilly Media, May 2012](http://shop.oreilly.com/product/0636920025245.do))*
+
 ## Getting Started
 This plugin requires Grunt `~0.4.1`
 
@@ -88,4 +91,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Credits
 * [node-properties-parser](https://github.com/xavi-/node-properties-parser)
-* The Nicholas C. Zakas awesome project [props2js](https://github.com/nzakas/props2js).
+* The awesome project [props2js](https://github.com/nzakas/props2js).
