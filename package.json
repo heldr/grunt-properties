@@ -2,7 +2,7 @@
   "name": "grunt-properties",
   "description": "Convert java .properties files to javascript",
   "version": "0.1.0",
-  "homepage": "https://github.com/helder/grunt-properties",
+  "homepage": "https://github.com/heldr/grunt-properties",
   "author": {
     "name": "Helder Santana",
     "email": "helder.css@gmail.com",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/helder/grunt-properties.git"
+    "url": "git://github.com/heldr/grunt-properties.git"
   },
   "bugs": {
-    "url": "https://github.com/helder/grunt-properties/issues"
+    "url": "https://github.com/heldr/grunt-properties/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/helder/grunt-properties/blob/master/LICENSE-MIT"
+      "url": "https://github.com/heldr/grunt-properties/blob/master/LICENSE-MIT"
     }
   ],
   "main": "Gruntfile.js",
