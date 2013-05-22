@@ -1,4 +1,4 @@
-# grunt-properties
+# grunt-properties [![Build Status](https://secure.travis-ci.org/heldr/grunt-properties.png?branch=master)](http://travis-ci.org/heldr/grunt-properties)
 
 > Convert java .properties files to javascript
 
