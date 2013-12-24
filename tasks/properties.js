@@ -20,7 +20,9 @@ module.exports = function(grunt) {
     var options = this.options({
           namespace: 'config'
         }),
-        src = 'var ' + options.namespace + ' = ' + options.namespace + ' || {};\n';
+        useNS = options.namespace.length > 0,
+        src = useNS === false ? '{\n' :
+            'var ' + options.namespace + ' = ' + options.namespace + ' || {};\n';
 
     function convert(filepath) {
       var fileContent = grunt.file.read(filepath),
@@ -31,7 +33,11 @@ module.exports = function(grunt) {
       fileContent = pParser.parse(fileContent);
 
       for (var file in fileContent) {
-        exp = ns + '.' + file + ' = "' + fileContent[file] + '";';
+        exp =
+            (useNS ? ns + '[' : '  ') + '"' + file + '"' +
+            (useNS ? ']' : '') + (useNS ? ' = ' : ': ') + '"' +
+            fileContent[file] + '"' + (useNS ? ';' : ',');
+
         code.push(exp);
       }
 
@@ -51,6 +57,10 @@ module.exports = function(grunt) {
           return true;
         }
       }).map(convert).join('\n');
+
+      if (useNS !== true) {
+        src = src.substring(0, src.length - 1) + '\n};';
+      }
 
       // Write the destination file.
       grunt.file.write(f.dest, src);
