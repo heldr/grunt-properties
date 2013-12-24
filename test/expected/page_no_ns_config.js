@@ -1,0 +1,4 @@
+{
+  "TITLE": "MYPAGE",
+  "URL": "http://mypage.com"
+};

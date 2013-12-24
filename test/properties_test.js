@@ -45,4 +45,22 @@ exports.properties = {
 
     test.done();
   },
+  page_font_config: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/page_font_config.js');
+    var expected = grunt.file.read('test/expected/page_font_config.js');
+    test.equal(actual, expected, 'Should use nested keys');
+
+    test.done();
+  },
+  page_no_ns_config: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/page_no_ns_config.js');
+    var expected = grunt.file.read('test/expected/page_no_ns_config.js');
+    test.equal(actual, expected, 'Should not use a namespace');
+
+    test.done();
+  },
 };
