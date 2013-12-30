@@ -43,6 +43,19 @@ module.exports = function(grunt) {
           'tmp/page_color_config.js': ['test/fixtures/page_config.properties', 'test/fixtures/page_color_config.properties'],
         },
       },
+      page_font_config: {
+        files: {
+          'tmp/page_font_config.js': ['test/fixtures/page_font_config.properties'],
+        },
+      },
+      page_no_ns_config: {
+        options: {
+          namespace: ''
+        },
+        files: {
+          'tmp/page_no_ns_config.js': ['test/fixtures/page_config.properties'],
+        },
+      },
     },
 
     // Unit tests.

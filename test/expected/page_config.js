@@ -1,3 +1,3 @@
 var config = config || {};
-config.TITLE = "MYPAGE";
-config.URL = "http://mypage.com";
+config["TITLE"] = "MYPAGE";
+config["URL"] = "http://mypage.com";
