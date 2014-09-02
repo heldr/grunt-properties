@@ -36,7 +36,7 @@ module.exports = function(grunt) {
         exp =
             (useNS ? ns + '[' : '  ') + '"' + file + '"' +
             (useNS ? ']' : '') + (useNS ? ' = ' : ': ') + '"' +
-            fileContent[file] + '"' + (useNS ? ';' : ',');
+            fileContent[file].replace(/"/g, '\\"') + '"' + (useNS ? ';' : ',');
 
         code.push(exp);
       }
