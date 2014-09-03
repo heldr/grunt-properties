@@ -4,4 +4,4 @@ node_js:
   - "0.8"
 #for node 0.8 build
 before_install:
-  - npm install -g npm
+  - npm install -g npm@1.4
