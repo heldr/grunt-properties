@@ -1,4 +1,4 @@
-# grunt-properties [![Build Status](https://secure.travis-ci.org/heldr/grunt-properties.png?branch=master)](http://travis-ci.org/heldr/grunt-properties)
+# grunt-properties [![Build Status](http://img.shields.io/travis/heldr/grunt-properties/master.svg?style=flat)](http://travis-ci.org/heldr/grunt-properties)
 
 > Convert java [.properties](http://en.wikipedia.org/wiki/.properties) files to javascript
 

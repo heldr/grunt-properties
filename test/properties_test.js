@@ -62,5 +62,5 @@ exports.properties = {
     test.equal(actual, expected, 'Should not use a namespace');
 
     test.done();
-  },
+  }
 };

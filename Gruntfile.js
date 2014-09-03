@@ -16,52 +16,52 @@ module.exports = function(grunt) {
       all: [
         'Gruntfile.js',
         'tasks/*.js',
-        '<%= nodeunit.tests %>',
+        '<%= nodeunit.tests %>'
       ],
       options: {
-        jshintrc: '.jshintrc',
-      },
+        jshintrc: '.jshintrc'
+      }
     },
 
     // Before generating any new files, remove any previously-created files.
     clean: {
-      tests: ['tmp'],
+      tests: ['tmp']
     },
 
     // Configuration to be run (and then tested).
     properties: {
       page_config: {
         files: {
-          'tmp/page_config.js': ['test/fixtures/page_config.properties'],
-        },
+          'tmp/page_config.js': ['test/fixtures/page_config.properties']
+        }
       },
       page_color_config: {
         options: {
           namespace: 'mypage'
         },
         files: {
-          'tmp/page_color_config.js': ['test/fixtures/page_config.properties', 'test/fixtures/page_color_config.properties'],
-        },
+          'tmp/page_color_config.js': ['test/fixtures/page_config.properties', 'test/fixtures/page_color_config.properties']
+        }
       },
       page_font_config: {
         files: {
-          'tmp/page_font_config.js': ['test/fixtures/page_font_config.properties'],
-        },
+          'tmp/page_font_config.js': ['test/fixtures/page_font_config.properties']
+        }
       },
       page_no_ns_config: {
         options: {
           namespace: ''
         },
         files: {
-          'tmp/page_no_ns_config.js': ['test/fixtures/page_config.properties'],
-        },
-      },
+          'tmp/page_no_ns_config.js': ['test/fixtures/page_config.properties']
+        }
+      }
     },
 
     // Unit tests.
     nodeunit: {
-      tests: ['test/*_test.js'],
-    },
+      tests: ['test/*_test.js']
+    }
 
   });
 
@@ -75,7 +75,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'properties', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'jshint', 'properties', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
