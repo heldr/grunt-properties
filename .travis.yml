@@ -5,3 +5,4 @@ node_js:
 #for node 0.8 build
 before_install:
   - npm install -g npm@1.4
+  - npm install -g grunt-cli
