@@ -21,8 +21,23 @@ module.exports = function(grunt) {
           namespace: 'config'
         }),
         useNS = options.namespace.length > 0,
-        src = useNS === false ? '{\n' :
-            'var ' + options.namespace + ' = ' + options.namespace + ' || {};\n';
+        useKeysSplitter = options.keysSplitter !== undefined,
+        src = useKeysSplitter=== true ? '' : (useNS === false ? '{\n' :
+            'var ' + options.namespace + ' = ' + options.namespace + ' || {};\n');
+
+      function splitKeys(obj, splitter) {
+          var keys, value, parent, result = {};
+          for (var key in obj) {
+              keys = key.split(splitter);
+              value = obj[key].replace(/"/g, '\\"');
+              parent = result;
+              for (var j = 0; j < keys.length-1; j++) {
+                  parent = parent[keys[j]] = parent[keys[j]] || {};
+              }
+              parent[keys[keys.length-1]] = value;
+          }
+          return JSON.stringify(result, null, 2);
+      }
 
     function convert(filepath) {
       var fileContent = grunt.file.read(filepath),
@@ -32,16 +47,21 @@ module.exports = function(grunt) {
 
       fileContent = pParser.parse(fileContent);
 
-      for (var file in fileContent) {
-        exp =
-            (useNS ? ns + '[' : '  ') + '"' + file + '"' +
-            (useNS ? ']' : '') + (useNS ? ' = ' : ': ') + '"' +
-            fileContent[file].replace(/"/g, '\\"') + '"' + (useNS ? ';' : ',');
+      if(useKeysSplitter === true) {
+          return useNS ? 'var ' + options.namespace + ' = ' + splitKeys(fileContent, options.keysSplitter) + ";"
+              : splitKeys(fileContent, options.keysSplitter);
+      } else {
+          for (var file in fileContent) {
+              exp =
+                  (useNS ? ns + '[' : '  ') + '"' + file + '"' +
+                  (useNS ? ']' : '') + (useNS ? ' = ' : ': ') + '"' +
+                  fileContent[file].replace(/"/g, '\\"') + '"' + (useNS ? ';' : ',');
 
-        code.push(exp);
+              code.push(exp);
+          }
+
+          return code.join('\n');
       }
-
-      return code.join('\n');
     }
 
     // Iterate over all specified file groups.
@@ -58,7 +78,7 @@ module.exports = function(grunt) {
         }
       }).map(convert).join('\n');
 
-      if (useNS !== true) {
+      if (useNS !== true && useKeysSplitter !== true) {
         src = src.substring(0, src.length - 1) + '\n};';
       }
 

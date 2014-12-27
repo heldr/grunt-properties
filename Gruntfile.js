@@ -55,6 +55,23 @@ module.exports = function(grunt) {
         files: {
           'tmp/page_no_ns_config.js': ['test/fixtures/page_config.properties']
         }
+      },
+      page_font_nested_object_config: {
+        options: {
+            keysSplitter: '.'
+        },
+        files: {
+          'tmp/page_font_nested_object_config.js': ['test/fixtures/page_font_config.properties']
+        }
+      },
+      page_font_nested_object_no_ns_config: {
+        options: {
+            namespace: '',
+            keysSplitter: '.'
+        },
+        files: {
+          'tmp/page_font_nested_object_no_ns_config.js': ['test/fixtures/page_font_config.properties']
+        }
       }
     },
 
