@@ -62,5 +62,23 @@ exports.properties = {
     test.equal(actual, expected, 'Should not use a namespace');
 
     test.done();
+  },
+  page_font_nested_object_config: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/page_font_nested_object_config.js');
+    var expected = grunt.file.read('test/expected/page_font_nested_object_config.js');
+    test.equal(actual, expected, 'should generate nested object');
+
+    test.done();
+  },
+  page_font_nested_object_no_ns_config: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/page_font_nested_object_no_ns_config.js');
+    var expected = grunt.file.read('test/expected/page_font_nested_object_no_ns_config.js');
+    test.equal(actual, expected, 'should generate nested object');
+
+    test.done();
   }
 };
