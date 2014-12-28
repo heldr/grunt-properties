@@ -43,6 +43,6 @@
     "java"
   ],
   "dependencies": {
-    "properties-parser": "~0.1.1"
+    "properties-parser": "~0.2.3"
   }
 }
