@@ -1,7 +1,7 @@
 {
   "name": "grunt-properties",
   "description": "Convert java .properties files to javascript",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": "https://github.com/heldr/grunt-properties",
   "author": {
     "name": "Helder Santana",
