@@ -67,8 +67,10 @@ module.exports = function(grunt) {
     // Iterate over all specified file groups.
     this.files.forEach(function(f) {
 
+      var output = src;
+
       // Concat specified files.
-      src += f.src.filter(function(filepath) {
+      output += f.src.filter(function(filepath) {
         // Warn on and remove invalid source files (if nonull was set).
         if (!grunt.file.exists(filepath)) {
           grunt.log.warn('.properties file "' + filepath + '" not found.');
@@ -79,11 +81,11 @@ module.exports = function(grunt) {
       }).map(convert).join('\n');
 
       if (useNS !== true && useKeysSplitter !== true) {
-        src = src.substring(0, src.length - 1) + '\n};';
+        output = output.substring(0, output.length - 1) + '\n};';
       }
 
       // Write the destination file.
-      grunt.file.write(f.dest, src);
+      grunt.file.write(f.dest, output);
 
       // Print a success message.
       grunt.log.writeln('File "' + f.dest + '" created.');
