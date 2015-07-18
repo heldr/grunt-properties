@@ -80,5 +80,32 @@ exports.properties = {
     test.equal(actual, expected, 'should generate nested object');
 
     test.done();
+  },
+  i18n_properties_base: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/i18n/base.js');
+    var expected = grunt.file.read('test/expected/i18n/base.js');
+    test.equal(actual, expected, 'should be without keys from other property files');
+
+    test.done();
+  },
+  i18n_properties_base_en: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/i18n/base_en.js');
+    var expected = grunt.file.read('test/expected/i18n/base_en.js');
+    test.equal(actual, expected, 'should be without keys from other property files');
+
+    test.done();
+  },
+  i18n_properties_base_de: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/i18n/base_de.js');
+    var expected = grunt.file.read('test/expected/i18n/base_de.js');
+    test.equal(actual, expected, 'should be without keys from other property files');
+
+    test.done();
   }
 };

@@ -72,6 +72,21 @@ module.exports = function(grunt) {
         files: {
           'tmp/page_font_nested_object_no_ns_config.js': ['test/fixtures/page_font_config.properties']
         }
+      },
+      i18n_properties: {
+        options: {
+          namespace: 'i18n'
+        },
+        files: [
+          {
+            expand: true,
+            flatten: true,
+            src: ['test/fixtures/i18n/*.properties'],
+            dest: 'tmp/i18n',
+            ext: '.js',
+            extDot: 'last'
+          }
+        ]
       }
     },
 
